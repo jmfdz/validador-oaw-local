@@ -45,6 +45,18 @@ body {
   background: #143b64;
 }
 
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.site-header a {
+  color: #ffffff;
+  font-weight: 600;
+}
+
 .product-name {
   font-size: 1.125rem;
   font-weight: 700;
@@ -83,6 +95,20 @@ form,
   background: #ffffff;
 }
 
+fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+legend {
+  margin-block-end: 0.25rem;
+  padding: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
 .field {
   margin-block-end: 0.75rem;
 }
@@ -108,19 +134,36 @@ label {
   font-weight: 600;
 }
 
-textarea {
+textarea,
+input[type="file"] {
   width: 100%;
-  max-height: 8.75rem;
   padding: 0.6rem;
   border: 0.125rem solid #64748b;
   border-radius: 0.25rem;
   font: inherit;
   color: inherit;
   background: #ffffff;
+}
+
+textarea {
+  max-height: 8.75rem;
   resize: none;
 }
 
-textarea[aria-invalid="true"] {
+input[type="file"]::file-selector-button {
+  margin-inline-end: 0.75rem;
+  padding: 0.45rem 0.75rem;
+  border: 0;
+  border-radius: 0.2rem;
+  font: inherit;
+  font-weight: 700;
+  color: #ffffff;
+  background: #005a9c;
+  cursor: pointer;
+}
+
+textarea[aria-invalid="true"],
+input[aria-invalid="true"] {
   border-color: #b91c1c;
 }
 
@@ -150,6 +193,7 @@ button:disabled {
 a:focus-visible,
 button:focus-visible,
 textarea:focus-visible,
+input:focus-visible,
 main:focus-visible,
 summary:focus-visible {
   outline: 0.1875rem solid #111827;
@@ -223,7 +267,7 @@ thead {
   background: #e8eef5;
 }
 
-.summary-url {
+.summary-source {
   max-width: 22rem;
   overflow-wrap: anywhere;
 }
@@ -260,7 +304,7 @@ thead {
   outline-offset: 0.35rem;
 }
 
-.validated-url {
+.validated-source {
   overflow-wrap: anywhere;
 }
 
@@ -317,6 +361,12 @@ pre {
 
   button {
     width: 100%;
+  }
+
+  .header-content {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.2rem;
   }
 }
 

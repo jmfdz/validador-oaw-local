@@ -1,0 +1,9 @@
+.git
+.gitignore
+LICENSE.md
+NOTICE.md
+README.md
+compose.yaml
+descargar-war.sh
+descargar-war.ps1
+

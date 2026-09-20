@@ -1,0 +1,10 @@
+services:
+  validador-oaw-local:
+    build:
+      context: .
+    image: validador-oaw-local:local
+    container_name: validador-oaw-local
+    shm_size: 1gb
+    ports:
+      - "7014:7014"
+

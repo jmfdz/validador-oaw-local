@@ -2,6 +2,11 @@ FROM tomcat:9.0-jre8-temurin-jammy AS tomcat-runtime
 
 FROM node:20-bookworm-slim
 
+LABEL org.opencontainers.image.title="Validador OAW local" \
+      org.opencontainers.image.description="Distribución no oficial y simplificada del Validador OAW" \
+      org.opencontainers.image.source="https://github.com/jmfdz/validador-oaw-local" \
+      org.opencontainers.image.licenses="EUPL-1.2"
+
 ENV JAVA_HOME=/opt/java/openjdk \
     CATALINA_HOME=/usr/local/tomcat \
     PATH=/opt/java/openjdk/bin:/usr/local/tomcat/bin:${PATH}
