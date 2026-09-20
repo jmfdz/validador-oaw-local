@@ -1,0 +1,8 @@
+{
+  "name": "oaw-local-renderer",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "prerender": "5.6.0"
+  }
+}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cliente de prueba del Validador OAW</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+    <header class="site-header">
+      <p class="container product-name">Validador OAW</p>
+    </header>
+
+    <main id="contenido" class="container" tabindex="-1">
+      <h1>Validar páginas web</h1>
+
+      <form id="validation-form" novalidate>
+        <div class="field">
+          <label for="urls">Direcciones web</label>
+          <p id="urls-help" class="field-help">Una URL por línea, con <code>https://</code> o <code>http://</code>.</p>
+          <textarea
+            id="urls"
+            name="urls"
+            rows="5"
+            required
+            spellcheck="false"
+            aria-describedby="urls-help urls-error"
+            placeholder="https://www.ejemplo.es/&#10;https://www.otro-ejemplo.es/"
+          ></textarea>
+          <p id="urls-error" class="field-error" hidden></p>
+        </div>
+
+        <button id="submit-button" type="submit">Validar páginas</button>
+      </form>
+
+      <section class="results" aria-labelledby="results-title">
+        <h2 id="results-title">Resultados</h2>
+        <p id="status" role="status" aria-live="polite">Introduce una dirección web para comenzar.</p>
+        <div class="download-actions" role="group" aria-label="Descargar resultados">
+          <button id="download-json" class="secondary-button" type="button" disabled>Descargar JSON</button>
+          <button id="download-html" class="secondary-button" type="button" disabled>Descargar HTML</button>
+        </div>
+        <p id="request-error" class="request-error" role="alert" hidden></p>
+        <div id="results-content" aria-busy="false"></div>
+      </section>
+    </main>
+  </body>
+</html>
