@@ -20,8 +20,11 @@ puerto `7014`.
 El cliente está disponible en:
 
 ```text
-http://localhost:7014/cliente/
+http://localhost:7014
 ```
+
+La dirección raíz redirige automáticamente a `/cliente/`, por lo que también
+puedes abrir directamente `http://localhost:7014/cliente/`.
 
 ## Diferencias respecto al proyecto oficial
 
@@ -73,7 +76,7 @@ y Chromium. Las siguientes suelen ser mucho más rápidas.
 Cuando termine, abre:
 
 ```text
-http://localhost:7014/cliente/
+http://localhost:7014
 ```
 
 ## Instalación sencilla en Windows
@@ -108,7 +111,7 @@ curl.exe -fL "https://github.com/jmfdz/validador-oaw-local/releases/download/v1.
 docker compose up -d --build
 ```
 
-5. Abre `http://localhost:7014/cliente/` en el navegador.
+5. Abre `http://localhost:7014` en el navegador.
 
 ## Por qué hay que descargar un WAR
 

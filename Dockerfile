@@ -26,7 +26,9 @@ COPY --from=tomcat-runtime /usr/local/tomcat /usr/local/tomcat
 
 RUN rm -rf /usr/local/tomcat/webapps/* \
     && sed -i 's/port="8080" protocol="HTTP\/1.1"/port="7014" protocol="HTTP\/1.1"/' /usr/local/tomcat/conf/server.xml \
+    && sed -i '/<\/Host>/i\        <Valve className="org.apache.catalina.valves.rewrite.RewriteValve" />' /usr/local/tomcat/conf/server.xml \
     && mkdir -p /opt/oaw/config /opt/oaw/proxy /opt/oaw/renderer /opt/oaw/tls /var/log/supervisor \
+        /usr/local/tomcat/conf/Catalina/localhost \
     && openssl req -x509 -newkey rsa:2048 -nodes \
         -keyout /opt/oaw/tls/proxy.key \
         -out /opt/oaw/tls/proxy.crt \
@@ -44,6 +46,7 @@ COPY --chown=node:node renderer/server.js /opt/oaw/renderer/server.js
 COPY proxy/index.js /opt/oaw/proxy/index.js
 COPY config/external.properties /opt/oaw/config/external.properties
 COPY config/oaw-validadorTrust.jks /opt/oaw/config/oaw-validadorTrust.jks
+COPY config/rewrite.config /usr/local/tomcat/conf/Catalina/localhost/rewrite.config
 COPY validador_oaw.war /usr/local/tomcat/webapps/ROOT.war
 COPY client/ /usr/local/tomcat/webapps/cliente/
 COPY supervisord.conf /etc/supervisor/conf.d/oaw-validator.conf
